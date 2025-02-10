@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 import SliderSkeleton from './skeletons/slider-skeleton';
+import { Link } from 'react-router-dom';
 
 const Slider = ({ data }) => {
     const imgUrl = localStorage.getItem('imgUrl')
@@ -46,9 +47,11 @@ const Slider = ({ data }) => {
                                         <span>|</span>
                                         <p>Views: {Number(item.popularity).toFixed()}</p>
                                     </div>
-                                    <button className="bg-gradient-to-tr from-[#13253e] to-[#275aa1] px-4 py-2 text-gray-300 font-bold rounded-lg mt-4 shadow-md hover:scale-110 transition-all">
-                                        Book Now
-                                    </button>
+                                    <Link to={`/${item.id}`}>
+                                        <button className="bg-gradient-to-tr from-[#13253e] to-[#275aa1] px-4 py-2 text-gray-300 font-bold rounded-lg mt-4 shadow-md hover:scale-110 transition-all">
+                                            Book Now
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </SwiperSlide>
