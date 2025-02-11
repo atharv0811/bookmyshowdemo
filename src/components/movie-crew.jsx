@@ -1,4 +1,4 @@
-const MovieCasts = ({ movieCasts, loading }) => {
+const MovieCrew = ({ movieCrew, loading }) => {
     const imgUrl = localStorage.getItem("imgUrl");
 
     return (
@@ -17,29 +17,29 @@ const MovieCasts = ({ movieCasts, loading }) => {
                         ))}
                     </div>
                 </div>
-            ) : movieCasts.length > 0 ? (
+            ) : movieCrew.length > 0 ? (
                 <div className="overflow-x-auto no-scrollbar">
                     <div className="w-[30rem] md:w-full flex items-start gap-4">
-                        {movieCasts.map((cast) => (
-                            <div key={cast.id} className="flex flex-col items-center">
+                        {movieCrew.map((crew) => (
+                            <div key={crew.id} className="flex flex-col items-center">
                                 <img
-                                    src={imgUrl + cast.profile_path}
+                                    src={imgUrl + crew.profile_path}
                                     alt=""
                                     className="w-20 md:w-28 h-20 md:h-28 rounded-full object-cover"
                                 />
-                                <p className="text-sm md:text-base text-center">{cast.name}</p>
+                                <p className="text-sm md:text-base text-center">{crew.name}</p>
                                 <p className="text-gray-500 text-sm">
-                                    {cast.known_for_department === "Acting" && "Actor"}
+                                    {crew.job}
                                 </p>
                             </div>
                         ))}
                     </div>
                 </div>
             ) : (
-                <p className="text-gray-500">No cast information available.</p>
+                <p className="text-gray-500">No crew information available.</p>
             )}
         </div>
     );
 };
 
-export default MovieCasts;
+export default MovieCrew;

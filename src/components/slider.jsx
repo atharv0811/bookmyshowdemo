@@ -18,7 +18,9 @@ const Slider = ({ data }) => {
             modules={[Autoplay, A11y]}
             slidesPerView={1}
             pagination={{ clickable: true }}
-            autoplay
+            autoplay={{
+                pauseOnMouseEnter: true
+            }}
         >
             {
                 data.slice(0, 5).map((item) => {

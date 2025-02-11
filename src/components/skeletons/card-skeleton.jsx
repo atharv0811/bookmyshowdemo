@@ -15,7 +15,7 @@ const CardSkeleton = () => {
             >
                 {[...Array(6)].map((_, index) => (
                     <SwiperSlide key={index}>
-                        <div className="w-full h-[225px] sm:h-[270px] lg:h-[300px] bg-gray-800 rounded-lg animate-pulse" />
+                        <div className="w-full h-[225px] sm:h-[270px] lg:h-[300px] bg-gray-300 rounded-lg animate-pulse" />
                     </SwiperSlide>
                 ))}
             </Swiper>

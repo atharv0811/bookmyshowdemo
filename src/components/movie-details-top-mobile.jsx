@@ -1,5 +1,6 @@
 import { Dot, Star } from "lucide-react";
 import MovieDetialsTopMobileSkeleton from "./skeletons/movie-dtls-top-mob-skltn";
+import { Link } from "react-router-dom";
 
 const MovieDetailsTopMobile = ({ details, loading }) => {
     const imgUrl = localStorage.getItem("imgUrl");
@@ -65,11 +66,13 @@ const MovieDetailsTopMobile = ({ details, loading }) => {
                     <p>{details.overview}</p>
                 </div>
             </div>
-            <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-gray-200 py-2 md:hidden">
-                <button className="bg-red-500 text-white py-2 px-6 w-full mx-4 rounded-lg font-semibold shadow-lg">
-                    Book Tickets
-                </button>
-            </div>
+            <Link to={'seat-selection'}>
+                <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-gray-200 py-2 md:hidden">
+                    <button className="bg-red-500 text-white py-2 px-6 w-full mx-4 rounded-lg font-semibold shadow-lg">
+                        Book Tickets
+                    </button>
+                </div>
+            </Link>
         </>
     );
 };

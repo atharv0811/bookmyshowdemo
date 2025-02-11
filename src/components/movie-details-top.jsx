@@ -1,7 +1,8 @@
 import { Dot, Star } from "lucide-react";
 import MovieDetailsTopSkeleton from "./skeletons/movie-details-top-skeleton";
+import { Link } from "react-router-dom";
 
-const MovieDetailsTop = ({ details, loading }) => {
+const MovieDetailsTop = ({ details, loading, id }) => {
     const imgUrl = localStorage.getItem("imgUrl");
 
     if (loading) return <MovieDetailsTopSkeleton />;
@@ -71,9 +72,11 @@ const MovieDetailsTop = ({ details, loading }) => {
                                 </div>
                             </div>
 
-                            <button className="py-3 px-16 font-semibold bg-[#F84464] rounded-lg">
-                                Book tickets
-                            </button>
+                            <Link to={'seat-selection'}>
+                                <button className="py-3 px-16 font-semibold bg-[#F84464] rounded-lg">
+                                    Book tickets
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
