@@ -1,4 +1,5 @@
 import { CreditCard, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const PaymentModal = ({
     isOpen,
@@ -7,6 +8,8 @@ const PaymentModal = ({
     selectedSeats,
     totalPrice,
 }) => {
+    const navigate = useNavigate();
+
     const loadScript = (src) => {
         return new Promise(resolve => {
             const script = document.createElement('script')
@@ -38,6 +41,7 @@ const PaymentModal = ({
             image: "/logo.svg",
             handler: function (response) {
                 alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                navigate("/");
             },
             prefill: {
                 name: "User",
