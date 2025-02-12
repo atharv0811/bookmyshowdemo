@@ -4,16 +4,19 @@ import Home from "./pages/home"
 import MovieDetails from "./pages/movie-details"
 import SeatSelection from "./pages/seat-selection"
 import Cart from "./pages/cart"
+import { useState } from "react"
 
 function App() {
+  const [cartLength, setCartLength] = useState(0)
+
   return (
     <BrowserRouter>
-      <Layout>
+      <Layout cartLength={cartLength}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:id" element={<MovieDetails />} />
           <Route path="/:id/seat-selection" element={<SeatSelection />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart setCartLength={setCartLength} />} />
         </Routes>
       </Layout>
     </BrowserRouter>

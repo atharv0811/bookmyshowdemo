@@ -1,9 +1,9 @@
 import Navbar from "./components/navbar"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, cartLength }) => {
     return (
         <div>
-            <Navbar />
+            <Navbar cartLength={cartLength} />
             <main>
                 {children}
             </main>

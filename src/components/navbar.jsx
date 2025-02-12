@@ -2,7 +2,7 @@ import { Search, ShoppingCart, UserCircle, X } from "lucide-react"
 import { useState } from "react";
 import { Link } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = ({ cartLength }) => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     const handleSubmit = (e) => {
@@ -39,8 +39,11 @@ const Navbar = () => {
                         </div>
 
                         <div className="flex items-center gap-4 md:gap-6">
-                            <Link to={'/cart'}>
+                            <Link to={"/cart"} className="relative">
                                 <ShoppingCart size={20} className="cursor-pointer" />
+                                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
+                                    {cartLength}
+                                </span>
                             </Link>
 
                             <Search className="sm:hidden cursor-pointer" onClick={toggleSearch} />

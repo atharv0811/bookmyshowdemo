@@ -2,7 +2,7 @@ import { Home, ShoppingCart, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Cart = () => {
+const Cart = ({ setCartLength }) => {
     const [cartItems, setCartItems] = useState([]);
 
     const navigate = useNavigate();
@@ -70,6 +70,10 @@ const Cart = () => {
         const paymentObject = new window.Razorpay(razorpayOptions);
         paymentObject.open();
     }
+
+    useEffect(() => {
+        setCartLength(cartItems.length)
+    }, [cartItems])
 
     return (
         <div className="max-w-[1180px] mx-auto p-6 lg:px-0">
