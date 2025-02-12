@@ -1,4 +1,4 @@
-import { Search, UserCircle, X } from "lucide-react"
+import { Search, ShoppingCart, UserCircle, X } from "lucide-react"
 import { useState } from "react";
 import { Link } from "react-router-dom"
 
@@ -38,11 +38,17 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        <Search className="sm:hidden cursor-pointer" onClick={toggleSearch} />
+                        <div className="flex items-center gap-4 md:gap-6">
+                            <Link to={'/cart'}>
+                                <ShoppingCart size={20} className="cursor-pointer" />
+                            </Link>
 
-                        <div className="hidden sm:flex items-center gap-2">
-                            <UserCircle size={25} className="text-gray-500" />
-                            <span>Hi, Guest</span>
+                            <Search className="sm:hidden cursor-pointer" onClick={toggleSearch} />
+
+                            <div className="hidden sm:flex items-center gap-2">
+                                <UserCircle size={25} className="text-gray-500" />
+                                <span>Hi, Guest</span>
+                            </div>
                         </div>
                     </div>
                 ) : (
